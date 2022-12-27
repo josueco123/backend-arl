@@ -1,5 +1,6 @@
 import { Sequelize, DataTypes } from "sequelize";
 import dbConfig from '../config/config.js';
+import Vuelo from "./vuelo.js";
 
 const sequelize = new Sequelize(dbConfig.development.url);
 
@@ -47,5 +48,5 @@ const Cliente = sequelize.define('Cliente', {
     // Other model options go here
     tableName: 'arl_clientes'
 });
-
+//Cliente.belongsToMany(Vuelo, { through: 'arl_pasajes' });
 export default Cliente;

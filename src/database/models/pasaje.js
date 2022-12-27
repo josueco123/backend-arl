@@ -36,4 +36,5 @@ const Pasaje = sequelize.define('Pasaje', {
     tableName: 'arl_pasajes'
 });
 
+
 export default Pasaje;
