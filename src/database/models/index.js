@@ -18,6 +18,10 @@ if (db['Cliente'].associate) db['Cliente'].associate(db);
 db['Pasaje'] = Pasaje;
 if (db['Pasaje'].associate) db['Pasaje'].associate(db);
 
+db['Vuelo'].belongsTo(Ciudad, {foreignKey: 'id_origen', as: 'ciudad_origen'} );
+db['Vuelo'].belongsTo(Ciudad, {foreignKey: 'id_destino', as: 'ciudad_destino'});
+db['Pasaje'].belongsToMany(Cliente, {foreignKey: 'clientes_id', as: 'cliente_pasaje'});
+db['Pasaje'].belongsToMany(Vuelo, {foreignKey: 'vuelos_id', as: 'vuelo_pasaje'});
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
