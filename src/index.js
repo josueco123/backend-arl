@@ -15,17 +15,9 @@ const connectDB = async () =>{
 
 const indexServer = async () => {
     
-    await connectDB();
-    const ciudades = await db.Vuelo.findAll({ include: [{
-      model: db.Ciudad,
-      as: 'ciudad_origen'
-    }, {
-      model: db.Ciudad,
-      as: 'ciudad_destino'
-    }]   });
+    await connectDB();    
     httpServer.listen(process.env.PORT, () => {
         console.log(`Servidor escuchando en el puerto ${process.env.PORT}`);
-        console.log("All cities:", JSON.stringify(ciudades, null, 2));
     });
 };
 

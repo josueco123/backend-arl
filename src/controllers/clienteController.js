@@ -1,4 +1,4 @@
-import db from "../database/models";
+import db from "../database/models/index.js";
 
 const clienteModel = db.Cliente;
 
@@ -38,4 +38,14 @@ const updateMiles = async (id, miles) =>{
     
 };
 
-export { createCliente, getCliente, updateMiles };
+const getClientes = async () =>{
+
+    try{
+        const cliente = await clienteModel.findAll();
+          return cliente;
+    }catch (e){
+        console.error(e);
+    }
+}
+
+export { createCliente, getCliente, updateMiles, getClientes };

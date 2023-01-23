@@ -6,49 +6,39 @@ import Cliente from "./cliente.js";
 const sequelize = new Sequelize(dbConfig.development.url);
 
 const Vuelo = sequelize.define('Vuelo', {
-    // Model attributes are defined here
+    
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false
-    },    
-    id_origen: {
+    },   
+    ruta_id: {
         type: DataTypes.INTEGER,
         allowNull: false
-    },
-    id_destino: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-    },
-    fecha_ida: {
+    },         
+    fecha: {
         type: DataTypes.DATE,
         allowNull: false
     },
-    hora_ida: {
+    hora: {
         type: DataTypes.TIME,
         allowNull: false
-    },
-    fecha_regreso: {
-        type: DataTypes.DATE,
-        allowNull: false
-    },
-    hora_regreso: {
-        type: DataTypes.TIME,
-        allowNull: false
-    },
+    },   
     sillas_disponibles: {
         type: DataTypes.INTEGER,
         allowNull: false
-    },
-    distancia: {
+    },    
+    valor_unitario: {
         type: DataTypes.INTEGER,
         allowNull: false
     },
-}, {
-    // Other model options go here
+    escalas: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+}, {    
     tableName: 'arl_vuelos'
 });
 
-//Vuelo.belongsToMany(Cliente, { through: 'arl_pasajes' });
 export default Vuelo;

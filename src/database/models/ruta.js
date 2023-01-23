@@ -3,25 +3,27 @@ import dbConfig from "../config/config.js";
 
 const sequelize = new Sequelize(dbConfig.development.url);
 
-const Ciudad = sequelize.define('Cuidad', {
+const Ruta = sequelize.define('Ruta', {
     
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false
-    },
-    codigo: {
-        type: DataTypes.STRING,
-        allowNull: false        
-    },
-    nombre: {
-        type: DataTypes.STRING,
+    },    
+    id_origen: {
+        type: DataTypes.INTEGER,
         allowNull: false
-    }
+    },
+    id_destino: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    distancia: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },  
 }, {
-    
-    tableName: 'arl_ciudades'
+    tableName: 'arl_rutas'
 });
-
-export default Ciudad;
+export default Ruta;

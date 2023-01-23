@@ -4,7 +4,7 @@ import dbConfig from '../config/config.js';
 const sequelize = new Sequelize(dbConfig.development.url);
 
 const Pasaje = sequelize.define('Pasaje', {
-    // Model attributes are defined here
+    
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -32,7 +32,6 @@ const Pasaje = sequelize.define('Pasaje', {
         allowNull: false
     },    
 }, {
-    // Other model options go here
     tableName: 'arl_pasajes'
 });
 
